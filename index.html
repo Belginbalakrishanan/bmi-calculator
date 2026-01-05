@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #bd{
+            background:rgb(255, 209, 0);
+            font-family: sans-serif;
+        }
+        #border1{
+            margin-top: 125px;
+            height: 500px;
+            width: 870px;
+            background-color: black;
+            margin-left: 346px;
+            color: white;
+            box-shadow: orange 0px 0px 225px 90px;
+            border-radius: 10px;
+        }
+        #heading{
+            text-align: center;
+            padding-top: 60px;
+            font-size: 300%;
+            font-family:fantasy;
+            text-shadow: 0px 5px rgb(138, 137, 137)
+        }
+        #Height,#Weight{
+            font-size: 150%;
+            width: 370px;
+            height: 35px;
+            text-align: center;
+            margin-left: 20px;
+        }
+        #label1{
+            margin-left: 178px;
+            font-size: 208%;
+            font-family: fantasy;
+            
+        }
+        #label2{
+            margin-left: 184px;
+            font-size: 30px;
+            font-family: fantasy;  
+        }
+        #input1{
+            margin-left: 5px;
+            margin-top: 55px;
+        }
+        #input2{
+            margin-top: 35px;
+        }
+        button{
+            height: 40px;
+            width: 140px;
+            font-family: sans-serif;
+            font-size: larger;
+            font-weight: bold;
+            margin-left: 428px;
+            margin-top: 40px;
+            background-color: rgb(255, 209, 0) ;
+            color: white;
+            border-radius: 6px;
+            box-shadow:inset 0px 0px 3px 58px rgba(255, 166, 0, 0.89);
+        }
+        button:hover{
+            background-color:black;
+            transform:translate(0px,1px);
+            color: rgb(30, 28, 28);
+        }
+        #content{
+            margin-left: 119px;
+        }
+        #imgcontent{
+            position: absolute;
+            top: 179px;
+            left: 410px;
+            color: white;
+            background-image: url(/images/portrait-smiling-male-doctor5.jpg);
+            height: 500px;
+            width: 200px;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+            #result1{
+            padding-top: 337px;
+            text-align: center;
+            font-family: fantasy;
+            font-size: x-large;
+        }
+        #result{
+            text-align: center;
+            font-family: fantasy;
+            font-size: x-large;
+            color: orange;
+            text-shadow: 0px 2px rgb(138, 137, 137)
+        }
+        #bmi{
+            color:rgb(255, 166, 0) ;
+        }
+        #mainresult{
+            margin-left: 660px;
+            margin-top: 42px;
+            font-family: fantasy;
+            font-size: x-large;
+            color: orange;
+            text-shadow: 0px 2px rgb(138, 137, 137);
+        }
+    </style>
+    <script>
+        function calculate(){
+        var height= document.getElementById("Height").value;
+        var weight=document.getElementById("Weight").value;
+        var height=height*0.01;
+        var bmi=weight/(height*height);
+        if(bmi<=18.5){
+        document.getElementById("result").innerHTML=bmi;
+        document.getElementById("mainresult").innerHTML="Your  underweight";
+        document.getElementById("imgcontent").style.backgroundImage="url('../images/underweight.jpg')";
+        }else if(bmi>18.5 && bmi<=24.9){
+            document.getElementById("result").innerHTML=bmi;
+            document.getElementById("mainresult").innerHTML="Your  normal";
+            document.getElementById("imgcontent").style.backgroundImage="url('../images/healthy.jpg')";
+        }else if(bmi>=25.0 && bmi<=29.9){
+            document.getElementById("result").innerHTML=bmi;
+            document.getElementById("mainresult").innerHTML="over  weight";
+            document.getElementById("imgcontent").style.backgroundImage="url('../images/overweight.jpg')";
+        }else if(bmi>=30){
+            document.getElementById("result").innerHTML=bmi;
+            document.getElementById("mainresult").innerHTML="Your  obese";
+            document.getElementById("imgcontent").style.backgroundImage="url('../images/obese.jpg')";
+        }
+    }
+    </script>
+</head>
+<body id="bd">
+<div id="border1">
+    <p id="heading"> <span id="bmi">BMI</span> - calculator</p>
+    <div id="content">
+    <div id="input1">
+        <label for="" id="label1">Height</label>
+        <input id="Height" type="text" placeholder="in cm">
+    </div>
+    <div id="input2">
+        <label for="" id="label2">Weight</label>
+        <input id="Weight" type="text" placeholder="in kg">
+    </div>
+    <button onclick="calculate()">Calculate</button>
+    </div>
+    <p id="mainresult">Health State</p>
+</div>
+<div id="imgcontent">
+    <div id="back">
+        <p id="result1">Your BMI result <span id="result"></span> </p>
+    </div>
+</div>
+<p></p>
+</body>
+</html>
